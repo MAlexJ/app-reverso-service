@@ -1,16 +1,16 @@
 server:
-  port: ${APP_SERVICE_PORT:8080}
+  port: ${REVERSO_SERVICE_PORT:8080}
 
 spring:
   config:
     import: optional:file:.env[.properties]
   application:
-    name: ${APP_SERVICE_NAME:app-reverso-service}
+    name: ${REVERSO_SERVICE_NAME:app-reverso-service}
 
 kafka:
   topic:
-    in: ${CLOUD_KAFKA_USERNAME}-${FILTERING_SERVICE_TOPIC_IN:filtering-topic}
-    out: ${CLOUD_KAFKA_USERNAME}-${FILTERING_SERVICE_TOPIC_OUT:template-resolver-topic}
+    in: ${CLOUD_KAFKA_USERNAME}-${REVERSO_SERVICE_TOPIC_IN:in-topic}
+    out: ${CLOUD_KAFKA_USERNAME}-${REVERSO_SERVICE_TOPIC_OUT:out-topic}
   server:
     bootstrapServer: ${CLOUD_KAFKA_BROKER_URL}
     propertySecurityProtocol: SASL_SSL
