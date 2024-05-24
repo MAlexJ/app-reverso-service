@@ -1,0 +1,7 @@
+###
+POST http://localhost:8080/v1/translation
+Content-Type: application/json
+
+{
+  "text": "able"
+}
