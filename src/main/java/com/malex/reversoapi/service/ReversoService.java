@@ -1,7 +1,7 @@
 package com.malex.reversoapi.service;
 
 import com.malex.reversoapi.model.request.ReversoRequest;
-import com.malex.reversoapi.model.request.EngTranslationRequest;
+import com.malex.reversoapi.model.request.TranslationRequest;
 import com.malex.reversoapi.model.response.ReversoResponse;
 import com.malex.reversoapi.webservice.ReversoWebService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class ReversoService {
 
   private final ReversoWebService webService;
 
-  public Mono<ReversoResponse> translate(EngTranslationRequest request) {
+  public Mono<ReversoResponse> translate(TranslationRequest request) {
     var reversoRequest = new ReversoRequest(request.text());
     return webService.translate(reversoRequest);
   }

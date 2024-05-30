@@ -1,11 +1,21 @@
 server:
   port: ${REVERSO_SERVICE_PORT:8080}
 
+  error:
+    include-message: always
+    whitelabel:
+      enabled: true
+
 spring:
   config:
     import: optional:file:.env[.properties]
   application:
     name: ${REVERSO_SERVICE_NAME:app-reverso-service}
+
+  r2dbc:
+    url: r2dbc:postgresql://${POSTGRESQL_HOSTNAME}/${POSTGRESQL_DBNAME}
+    username: ${POSTGRESQL_USER}
+    password: ${POSTGRESQL_PASSWORD}
 
 kafka:
   topic:

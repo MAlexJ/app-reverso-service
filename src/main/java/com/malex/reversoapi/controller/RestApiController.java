@@ -1,6 +1,6 @@
 package com.malex.reversoapi.controller;
 
-import com.malex.reversoapi.model.request.EngTranslationRequest;
+import com.malex.reversoapi.model.request.TranslationRequest;
 import com.malex.reversoapi.model.response.ReversoResponse;
 import com.malex.reversoapi.service.ReversoService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class RestApiController {
 
   @PostMapping("/translation")
   public ResponseEntity<Mono<ReversoResponse>> translation(
-      @RequestBody EngTranslationRequest request) {
+      @RequestBody TranslationRequest request) {
     return ResponseEntity.ok(service.translate(request));
   }
 }
