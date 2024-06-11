@@ -3,7 +3,7 @@ POST http://localhost:8080/v1/translation
 Content-Type: application/json
 
 {
-  "from": "",
-  "to": "",
+  "from": "eng",
+  "to": "rus",
   "text": "able"
 }
