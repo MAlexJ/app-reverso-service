@@ -1,4 +1,7 @@
 ###
+GET http://localhost:8080/actuator/health
+
+###
 POST http://localhost:8080/v1/translation
 Content-Type: application/json
 
