@@ -3,8 +3,8 @@
 ##### Description:
 
 * Java 21
-* Springboot 3.3.0
-* Gradle 8.8
+* Springboot 3.3.5
+* Gradle 8.10.2
 
 ### Springboot project setup
 
@@ -22,7 +22,9 @@ POSTGRESQL_USER
 POSTGRESQL_PASSWORD
 ```
 
-### Gradle Versions Plugin
+### Gradle
+
+#### Gradle Versions Plugin
 
 Displays a report of the project dependencies that are up-to-date, exceed the latest version found, have upgrades, or
 failed to be resolved, info: https://github.com/ben-manes/gradle-versions-plugin
@@ -31,6 +33,18 @@ command:
 
 ```
 gradle dependencyUpdates
+```
+
+#### Gradle wrapper
+
+Gradle Wrapper Reference:
+https://docs.gradle.org/current/userguide/gradle_wrapper.html
+
+How to Upgrade Gradle Wrapper:
+https://dev.to/pfilaretov42/tiny-how-to-upgrade-gradle-wrapper-3obl
+
+```
+./gradlew wrapper --gradle-version latest
 ```
 
 ### Java code style
