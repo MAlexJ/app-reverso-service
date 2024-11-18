@@ -1,8 +1,11 @@
-###
+### health
 GET http://localhost:8080/actuator/health
 
+### shutdown
+POST http://localhost:8080/actuator/shutdown
+
 ###
-POST http://localhost:8080/v1/translation
+POST http://localhost:8080/api/translate/v1/translation
 Content-Type: application/json
 
 {

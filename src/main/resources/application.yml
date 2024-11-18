@@ -1,21 +1,32 @@
 server:
   port: ${REVERSO_SERVICE_PORT:8080}
 
+  shutdown: graceful
+
   error:
     include-message: always
+    include-stacktrace: always
     whitelabel:
       enabled: true
 
 spring:
   config:
     import: optional:file:.env[.properties]
-  application:
-    name: ${REVERSO_SERVICE_NAME:app-reverso-service}
 
-  r2dbc:
-    url: r2dbc:postgresql://${POSTGRESQL_HOSTNAME}/${POSTGRESQL_DBNAME}
-    username: ${POSTGRESQL_USER}
-    password: ${POSTGRESQL_PASSWORD}
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
+
+  application:
+    name: ${REVERSO_SERVICE_NAME:app_reverso_service}
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 kafka:
   topic:

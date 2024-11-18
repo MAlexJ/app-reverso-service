@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/api/translate/v1")
 @RequiredArgsConstructor
 public class RestApiController {
 
