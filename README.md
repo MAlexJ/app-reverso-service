@@ -1,5 +1,12 @@
 ### Reverso Service
 
+Project support communication protocols:
+
+1. http REST api
+2. kafka
+3. rabbitMq
+4. grpc
+
 #### Description:
 
 * Java 21
@@ -18,6 +25,22 @@ CLOUD_KAFKA_USERNAME=....
 CLOUD_KAFKA_PASSWORD=...
 CLOUD_KAFKA_BROKER_URL=....
 ```
+
+### API documentation
+
+Project uses OpenAPI (link: https://springdoc.org/)
+
+Configuration api documentation endpoint in *.yaml file
+
+```
+springdoc:
+  swagger-ui:
+    path: /api/documentation
+```
+
+API documentation endpoint:  <br>
+
+* http://{URL}:{port}/api/documentation
 
 ### Gradle
 

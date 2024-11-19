@@ -9,6 +9,11 @@ server:
     whitelabel:
       enabled: true
 
+logging:
+  level:
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
+    org.springframework.web: TRACE
+
 spring:
   config:
     import: optional:file:.env[.properties]
@@ -27,6 +32,17 @@ management:
     web:
       exposure:
         include: '*'
+
+
+springdoc:
+  swagger-ui:
+    path: /api/documentation
+
+reverso:
+  url: https://api.reverso.net/translate/v1/translation
+  header:
+    key: User-Agent
+    value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0'
 
 kafka:
   topic:

@@ -4,6 +4,7 @@ import com.malex.reversoapi.model.request.ReversoRequest;
 import com.malex.reversoapi.model.response.ReversoResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -15,18 +16,21 @@ public class ReversoWebService {
 
   private final WebClient webClient;
 
-  private static final String REVERSO_URL = "https://api.reverso.net/translate/v1/translation";
+  @Value("${reverso.url}")
+  private String baseUrl;
 
-  private static final String HEADER_KEY = "User-Agent";
-  private static final String HEADER_VALUE =
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0";
+  @Value("${reverso.header.key}")
+  private String headerKey;
 
-  public Mono<ReversoResponse> translate(ReversoRequest request) {
+  @Value("${reverso.header.value}")
+  private String headerValue;
+
+  public Mono<ReversoResponse> translate(ReversoRequest body) {
     return webClient
         .post()
-        .uri(REVERSO_URL)
-        .bodyValue(request)
-        .header(HEADER_KEY, HEADER_VALUE)
+        .uri(baseUrl)
+        .bodyValue(body)
+        .header(headerKey, headerValue)
         .retrieve()
         .bodyToMono(ReversoResponse.class)
         .doOnNext(response -> log.info("HTTP response - {}", response));
