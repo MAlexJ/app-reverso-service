@@ -1,0 +1,16 @@
+### health
+GET http://localhost:8080/actuator/health
+
+### shutdown
+POST http://localhost:8080/actuator/shutdown
+
+###
+POST http://localhost:8080/api-translate/translations
+Content-Type: application/json
+
+{
+  "format": "text",
+  "from": "eng",
+  "to": "rus",
+  "input": "able"
+}
