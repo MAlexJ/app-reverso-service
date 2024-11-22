@@ -1,4 +1,5 @@
 rootProject.name = 'app_reverso_service'
 
 include 'core_module',
-        'rest_api_module'
+        'rest_api_module',
+        'kafka_module'

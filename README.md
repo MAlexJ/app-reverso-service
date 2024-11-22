@@ -1,46 +1,31 @@
-### Reverso Service
+### Reverso Proxy Service
 
 Project support communication protocols:
 
-1. http REST api
-2. kafka
+1. http REST api: rest_api_module
+2. kafka: kafka_module
 3. rabbitMq
 4. grpc
+5. core: core_module
 
 #### Description:
 
-* Java 21
-* Springboot 3.3.5
-* Gradle 8.11
+* Java 23
+* Springboot 3.4.0
+* Gradle 8.11.1
 
 #### Springboot project setup
 
 create .env file with properties:
 
 ```
-APP_SERVICE_PORT=8080
-APP_SERVICE_NAME=app_reverso_service
+REST_API_MODULE_PORT=8080
+REST_API_MODULE_NAME=app_reverso_rest_module
 
-CLOUD_KAFKA_USERNAME=....
-CLOUD_KAFKA_PASSWORD=...
-CLOUD_KAFKA_BROKER_URL=....
+KAFKA_MODULE_USERNAME=....
+KAFKA_MODULE_PASSWORD=...
+KAFKA_MODULE_BROKER_URL=....
 ```
-
-### API documentation
-
-Project uses OpenAPI (link: https://springdoc.org/)
-
-Configuration api documentation endpoint in *.yaml file
-
-```
-springdoc:
-  swagger-ui:
-    path: /api/documentation
-```
-
-API documentation endpoint:  <br>
-
-* http://{URL}:{port}/api/documentation
 
 ### Gradle
 
@@ -81,7 +66,7 @@ link: https://github.com/google/google-java-format/blob/master/README.md#intelli
 
 * video tutorial: https://www.youtube.com/watch?v=QuBgmaILdWI
 * additional info: https://ealebed.github.io/tags/docker/
-* habr note: https://habr.com/ru/articles/513520/
+* habr info: https://habr.com/ru/articles/513520/
 
 #### IDE setup
 
@@ -104,32 +89,6 @@ ENTRYPOINT ["java","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,addres
 
 Note:
 The default postgres user and database are created in the entrypoint with initdb.
-
-### Cloud kafka
-
-free kafka online - https://www.cloudkarafka.com/ </br>
-Free plan: $0 </br>
-For testing and development we provide an Apache Kafka server
-that's shared between multiple users. </br>
-Note that other users' actions may affect your experience on this server.
-
-* Shared cluster
-* Topic management
-* Max 5 topics with 10 MB data/topic
-* Max 28 days retention
-* Certificate based authentication
-* Consume and produce from Kafka in a UI
-* Email and chat support
-
-### How to set up kafka:
-
-link for info - https://customer.cloudkarafka.com/instance </br>
-documentation: https://www.cloudkarafka.com/docs/spring.html </br>
-Springboot sample: https://github.com/CloudKarafka/springboot-kafka-example </br>
-
-* Hostname with port - url for CLOUD_KAFKA_BROKER_URL
-* Default user - username for CLOUD_KAFKA_USERNAME
-* oPassword - Password for CLOUD_KAFKA_PASSWORD
 
 ### UptimeRobot: Monitor anything
 

@@ -18,8 +18,8 @@ plugins {
     id "com.github.ben-manes.versions" version "${benManesDependencyVersion}"
 }
 
-group = "${buildGroup}"
-version = "${buildVersion}"
+group = "${restApiBuildGroup}"
+version = "${restApiBuildVersion}"
 
 java {
     sourceCompatibility = "${javaVersion}"
